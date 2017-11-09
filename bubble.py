@@ -1,9 +1,9 @@
 """
 This is pure python implementation of bubble sort algorithm
 For doctests run following command:
-python -m doctest -v bubble_sort.py
+python -m doctest -v bubble.py
 or
-python3 -m doctest -v bubble_sort.py
+python3 -m doctest -v bubble.py
 For manual testing run:
 python bubble_sort.py
 """
@@ -17,11 +17,11 @@ def bubble(collection):
     comparable items inside
     :return: the same collection ordered by ascending
     Examples:
-    >>> bubble_sort([0, 5, 3, 2, 2])
+    >>> bubble([0, 5, 3, 2, 2])
     [0, 2, 2, 3, 5]
-    >>> bubble_sort([])
+    >>> bubble([])
     []
-    >>> bubble_sort([-2, -5, -45])
+    >>> bubble([-2, -5, -45])
     [-45, -5, -2]
     """
     length = len(collection)
@@ -48,4 +48,4 @@ if __name__ == '__main__':
     except ValueError:
         print('para error')
     else:
-        print(bubble_sort(unsorted))
+        print(bubble(unsorted))
