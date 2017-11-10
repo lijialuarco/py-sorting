@@ -1,42 +1,34 @@
 """
-This is pure python implementation of selection sort algorithm
+This is pure python implementation of insertion sort algorithm
 For doctests run following command:
-python -m doctest -v selection.py
+python -m doctest -v insertion.py
 or
-python3 -m doctest -v selection.py
+python3 -m doctest -v insertion.py
 For manual testing run:
-python selection.py
+python bubble_sort.py
 """
 
 from __future__ import print_function
 
 
-def selection(collection):
-    """Pure implementation of bubble sort algorithm in Python
+def insertion(collection):
+    """Pure implementation of insertion sort algorithm in Python
     :param collection: some mutable ordered collection with heterogeneous
     comparable items inside
     :return: the same collection ordered by ascending
     Examples:
-    >>> selection([0, 5, 3, 2, 2])
+    >>> insertion([0, 5, 3, 2, 2])
     [0, 2, 2, 3, 5]
-    >>> selection([])
+    >>> insertion([])
     []
-    >>> selection([-2, -5, -45])
+    >>> insertion([-2, -5, -45])
     [-45, -5, -2]
     """
     length = len(collection)
-    swap = True
-
-    while swap:
-        for i in range(0, length):
-            swap = False
-            min_index = i
-            for j in range(i, length):
-                if collection[min_index] > collection[j]:
-                    min_index = j
-                    swap = True
-            collection[i], collection[min_index] = collection[min_index], collection[i]
-            # print(collection)
+    for i in range(0, length):
+        for j in range(0, i):
+            if collection[i] < collection[j]:
+                collection[j], collection[i] = collection[i], collection[j]
 
     return collection
 
@@ -57,4 +49,4 @@ if __name__ == '__main__':
     except ValueError:
         print('para error')
     else:
-        print(selection(unsorted))
+        print(insertion(unsorted))
